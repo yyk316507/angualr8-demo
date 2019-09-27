@@ -1,0 +1,9 @@
+<app-nav-bar 
+    [menu]= "menus$ | async"
+    (tabSelected)="handelTabSelected($event)"
+    [selectedTabLink] = "selectedTabLink$ | async"
+>
+</app-nav-bar>  
+<div class="main">
+    <router-outlet></router-outlet>
+</div>
