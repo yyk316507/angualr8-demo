@@ -1,0 +1,8 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-horizontal-grid [displayCols]='displayCol' [cols] = "col">
+  <span  *ngFor="let item of channels" appGridItem>
+    <img [src]="item.icon" alt="" appGridItemImage (click)="handleClick(item.id)">
+    <span appGridItemTitle="0.6rem">{{ item.title }}</span>
+  </span>
+</app-horizontal-grid>
+

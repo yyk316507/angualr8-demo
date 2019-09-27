@@ -1,0 +1,10 @@
+<app-scrollable-tab 
+    [menu]="menus$ | async" 
+    (tabSelected)="handelTabSelected($event)"
+    [selectedTabLink] = "selectedTabLink$ | async"
+>
+</app-scrollable-tab>  
+<div class="main">
+    <router-outlet></router-outlet>
+</div>
+
