@@ -3,3 +3,7 @@ export interface TopMenu {
     link?:string;
     id:number
   }
+export interface Ad {
+  imageUrl :string,
+  link : string
+}

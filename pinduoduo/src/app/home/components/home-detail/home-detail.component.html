@@ -1,15 +1,26 @@
-<div *ngIf="(selectedTabLink$ | async) === 'hot' else other ">
-  <app-image-slider [sliders]="imageSliders$ | async" ></app-image-slider>      
-  <app-horizontal-grid >
-      <div appGridItem *ngFor="let item of channels$ | async">
-          <img [src]="item.icon" alt="" appGridItemImage="2rem" (click)="handleClick(item.id)" >
-          <span appGridItemTitle="0.6rem">{{ item.title }}</span>
-      </div>
-  </app-horizontal-grid> 
+<!-- ng-container  不会增加dom节点 -->
+<ng-container  *ngIf="(selectedTabLink$ | async) as tab">
+  <ng-container *ngIf="tab === 'hot'">
+    <app-image-slider [sliders]="imageSliders$ | async" ></app-image-slider>      
+    <app-horizontal-grid> 
+        <div appGridItem *ngFor="let item of channels$ | async">
+            <img [src]="item.icon" alt="" appGridItemImage="2rem" (click)="handleClick(item.id)" >
+            <span appGridItemTitle="0.6rem">{{ item.title }}</span>
+        </div>
+    </app-horizontal-grid>  
+  </ng-container>
+</ng-container>
+<div class="ad-contaniner" *ngIf="(ad$ | async) as ad">
+  <img [src]="ad.imageUrl" alt="" class="ad-image">
 </div>
-<ng-template #other>
-  other works
-</ng-template>
+<app-vertical-drid [itemWidth]="'20rem'">
+  <app-product-card  
+  *ngFor="let item of products$ | async" 
+  [product]="item"
+  [routerLink]="['/products',item.id]"
+  ></app-product-card>
+</app-vertical-drid>
 
 
 
+                          

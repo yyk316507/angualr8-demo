@@ -6,9 +6,10 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { ImageSlider, Channel } from 'src/app/shared/components';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../services';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs';
+import { Ad ,Product} from 'src/app/shared/domain';
 
 @Component({
   selector: 'app-home-detail',
@@ -23,7 +24,10 @@ export class HomeDetailComponent implements OnInit {
   imageSliders$:Observable<ImageSlider[]>;
   channels$:Observable<Channel[]>;  
   selectedTabLink$:Observable<string>; 
+  ad$:Observable<Ad>;
+  products$:Observable<Product[]>
   sub:Subscription; 
+
   constructor(
     private route: ActivatedRoute,
     private service:HomeService,
@@ -43,6 +47,17 @@ export class HomeDetailComponent implements OnInit {
       )
     this.channels$ = this.service.getChannels()
     this.imageSliders$ = this.service.getImageSliders()
+    
+    this.ad$ = this.selectedTabLink$.pipe(
+      switchMap(tab => this.service.getAds(tab)),
+      filter(ads => ads.length > 0),
+      map(ads =>ads[0])
+    )
+
+    this.products$ = this.selectedTabLink$.pipe(
+      switchMap(tab => this.service.getProductsByTab(tab))
+    )
+    
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe()
