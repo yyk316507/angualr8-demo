@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TagDirective, AvatarDirective } from './directives';
-import { ProductCardComponent } from './components/product-card';
-import { VerticalGridComponent } from './components/vertical-grid';
+import { ProductCardComponent,VerticalGridComponent,BackButtonComponent } from './components';
 
 @NgModule({
     declarations: [
         ProductCardComponent,
         VerticalGridComponent,
+        BackButtonComponent,
         TagDirective,
         AvatarDirective
     ],
@@ -19,6 +19,7 @@ import { VerticalGridComponent } from './components/vertical-grid';
         FormsModule,
         ProductCardComponent,
         VerticalGridComponent,
+        BackButtonComponent,
         TagDirective,
         AvatarDirective
     ],

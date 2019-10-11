@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ParamInterceptor, NotificationInterceptor } from './home/interceptors';
 import { HomeModule } from './home';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductModule } from './product';
 @NgModule({
   declarations: [
     AppComponent
@@ -14,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     SharedModule,
     HomeModule,
+    ProductModule,
     AppRoutingModule,
     HttpClientModule
   ],

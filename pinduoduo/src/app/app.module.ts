@@ -1,3 +1,4 @@
+import { ProductModule } from './product/product.module';
 import { RecommendModule } from './recommend/recommend.module';
 import { MyModule } from './my/my.module';
 import { ChatModule } from './chat/chat.module';
@@ -34,6 +35,7 @@ import { registerLocaleData } from '@angular/common';
       ChatModule,
       MyModule,
       RecommendModule,
+      ProductModule,
       HttpClientModule
    ],
    providers: [
