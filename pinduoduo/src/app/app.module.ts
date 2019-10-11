@@ -11,12 +11,14 @@ import { ParamInterceptor } from './home/interceptors/param.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import localeZh from '@angular/common/locales/zh-Hans';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
    declarations: [
@@ -44,6 +46,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
          provide:HTTP_INTERCEPTORS,
          useClass:NotificationInterceptor,
          multi:true
+      },
+      { 
+         provide: LOCALE_ID,
+         useValue: 'zh-Hans'
       }
    ],
    bootstrap: [
@@ -51,4 +57,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
    ]
 })
 export class AppModule { 
+   constructor() {
+      registerLocaleData(localeZh, 'zh');
+    }
 }

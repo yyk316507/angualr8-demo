@@ -10,7 +10,8 @@ import {
   CountDownComponent,
   FooterComponent, 
   VerticalDridComponent,
-  ProductCardComponent } from './components';
+  ProductCardComponent, 
+  ProductTileComponent} from './components';
 import { 
   GridItemDirective,
   GridItemTitleDirective,
@@ -30,6 +31,7 @@ import {
     FooterComponent,
     VerticalDridComponent,
     ProductCardComponent,
+    ProductTileComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
@@ -51,6 +53,7 @@ import {
     FooterComponent,
     VerticalDridComponent,
     ProductCardComponent,
+    ProductTileComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
