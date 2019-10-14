@@ -1,11 +1,7 @@
 import { Component, OnInit ,Input ,ViewChild,ElementRef,Renderer2, ChangeDetectionStrategy} from '@angular/core';
+import { ImageSlider } from '../../domain';
 
-export interface ImageSlider {
-    id:number;
-    imgUrl : string;
-    link : string;
-    caption : string;
-}
+
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
@@ -29,20 +25,15 @@ export class ImageSliderComponent implements OnInit {
     /* 
     内存泄漏 
     */
+   if(this.intervalBySeconds<=0){
+    return;
+   }else{
     this.intervalId = setInterval(()=>{
       this.rd2.setProperty(this.imgSlider.nativeElement,"scrollLeft",((this.getIndex(++this.selectedIndex) % this.sliders.length) *this.imgSlider.nativeElement.scrollWidth/this.sliders.length))
     },this.intervalBySeconds * 1000)
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    // console.log("初始化ngAfterViewInit",this.imgs)
-    // this.imgs.forEach(item=>item.nativeElement.style.height="100px")
-    // this.imgs.forEach(item=>{
-    //   this.rd2.setStyle(item.nativeElement,"height","100px")
-    // })
+   }
   }
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     clearInterval(this.intervalId)
   }
   /* 数组越界的方法 */

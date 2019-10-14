@@ -3,13 +3,13 @@
 
 
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { ImageSlider, Channel } from 'src/app/shared/components';
+import { Channel } from 'src/app/shared/components';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../services';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs';
-import { Ad ,Product} from 'src/app/shared/domain';
+import { Ad ,Product, ImageSlider} from 'src/app/shared/domain';
 
 @Component({
   selector: 'app-home-detail',

@@ -28,7 +28,7 @@ export class CountDownComponent implements OnInit {
         })
       ),
       tap(val => console.log(val)),
-      map(({day,hour,minute,second}) => `${day}天:${hour}小时:${minute}分钟:${second}秒`)
+      map(({day,hour,minute,second}) => `${hour}:${minute}:${second}`)
     )
   }
   private diffInSec = (start: Date,end:Date) : number => {

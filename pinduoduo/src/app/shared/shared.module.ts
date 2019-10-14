@@ -12,13 +12,15 @@ import {
   VerticalDridComponent,
   ProductCardComponent, 
   ProductTileComponent,
-  BackButtonComponent} from './components';
+  BackButtonComponent,
+} from './components';
 import { 
   GridItemDirective,
   GridItemTitleDirective,
   GridItemImageDirective,
   TagDirective,
   AvatarDirective} from  './directives'
+import { DialogModule } from '../dialog/dialog.module';
 
 /* 
   集合导入导出
@@ -48,6 +50,7 @@ import {
   exports:[
     CommonModule,
     FormsModule,
+    DialogModule,
     ScrollableTabComponent,
     ImageSliderComponent,
     HorizontalGridComponent,

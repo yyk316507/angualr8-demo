@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TopMenu, ImageSlider, Channel } from 'src/app/shared/components';
+import { TopMenu,Channel } from 'src/app/shared/components';
 import { environment } from 'src/environments/environment';
-import { Ad, Product } from 'src/app/shared/domain';
+import { Ad, Product, ImageSlider } from 'src/app/shared/domain';
 
 @Injectable({
     providedIn:'root'

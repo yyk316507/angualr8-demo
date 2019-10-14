@@ -1,8 +1,10 @@
+
 import { Router, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TabItem } from './shared/domain/index';
 import { Component} from '@angular/core';
 import { map,filter } from 'rxjs/operators';
+import { DialogService } from './dialog/services';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,10 @@ import { map,filter } from 'rxjs/operators';
 })
 export class AppComponent {
   selectedIndex$:Observable<number>;
-  handleTabSelect(tab:TabItem){
-    this.router.navigate([tab.link]);
-  }
-  constructor(private router:Router){}
+  constructor(
+    private router:Router,
+    private dialogService:DialogService
+    ){}
   ngOnInit(): void {
     /* router.events  检测路由变化
       NavigationStart：导航开始
@@ -37,5 +39,11 @@ export class AppComponent {
     ? 2 : tab === 'chat' 
     ? 3 : tab === 'my' 
     ? 4 :0
+  }
+  handleTabSelect(tab:TabItem){
+    this.router.navigate([tab.link]);
+  }
+  removeDialog(){
+    this.dialogService.close()
   }
 }

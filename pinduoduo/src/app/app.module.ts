@@ -40,19 +40,20 @@ import { registerLocaleData } from '@angular/common';
    ],
    providers: [
       {
-         provide:HTTP_INTERCEPTORS,
-         useClass:ParamInterceptor,
-         multi:true
-      },
-      {
-         provide:HTTP_INTERCEPTORS,
-         useClass:NotificationInterceptor,
-         multi:true
-      },
-      { 
+         // 系统提供的 LOCALE_ID 就是一个 InjectionToken
          provide: LOCALE_ID,
          useValue: 'zh-Hans'
-      }
+       },
+       {
+         provide: HTTP_INTERCEPTORS,
+         useClass: NotificationInterceptor,
+         multi: true
+       },
+       {
+         provide: HTTP_INTERCEPTORS,
+         useClass: ParamInterceptor,
+         multi: true
+       }
    ],
    bootstrap: [
       AppComponent
