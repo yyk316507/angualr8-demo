@@ -9,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
     `,
     styles: [`
         .container{
-            display:flex;
+            display: flex;
             flex-direction: column;
-            justify-content:strat;
-            align-items:stretch;
-            height:100%;
+            justify-content: flex-start;
+            align-items: stretch;
+            height: 100%;
         }
     `]
 })

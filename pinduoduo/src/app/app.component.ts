@@ -13,6 +13,7 @@ import { DialogService } from './dialog/services';
 })
 export class AppComponent {
   selectedIndex$:Observable<number>;
+  data$: Observable<any>;
   constructor(
     private router:Router,
     private dialogService:DialogService
@@ -32,6 +33,7 @@ export class AppComponent {
       }),
       map(tab => this.getSelectedIndex(tab))
     );
+    this.data$ = this.dialogService.getData()
   }
   getSelectedIndex(tab:string){
     return tab === 'recommend'

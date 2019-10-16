@@ -1,9 +1,17 @@
 
+
 import { NgModule } from '@angular/core';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { ProductContainerComponent,GroupItemComponent, GroupShortListComponent, ProductVariantDialogComponent } from './components';
+import { 
+  ProductContainerComponent,
+  GroupItemComponent,
+  GroupShortListComponent, 
+  ProductVariantDialogComponent, 
+  ProductAmountComponent, 
+  ConfirmOrderComponent,
+  PaymentComponent} from './components';
 
 
 @NgModule({
@@ -11,7 +19,10 @@ import { ProductContainerComponent,GroupItemComponent, GroupShortListComponent, 
     ProductContainerComponent,
     GroupItemComponent,
     GroupShortListComponent,
-    ProductVariantDialogComponent
+    ProductVariantDialogComponent,
+    ProductAmountComponent,
+    ConfirmOrderComponent,
+    PaymentComponent
   ],
   imports: [
     SharedModule,

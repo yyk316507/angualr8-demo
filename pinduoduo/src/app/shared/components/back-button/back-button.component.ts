@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 import {Location} from '@angular/common'
 @Component({
   selector: 'app-back-button',
@@ -7,7 +7,7 @@ import {Location} from '@angular/common'
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class BackButtonComponent implements OnInit {
-  float = true;
+  @Input() float = true;
   constructor(private location: Location) { }
 
   ngOnInit() {
